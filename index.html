@@ -1,1 +1,43 @@
 
+import React, { useState } from 'react';
+import { Smile, Brain, Sprout, Star, Heart } from 'lucide-react';
+
+const Presentation = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const slides = [
+    { icon: Smile, title: "Hi, I'm Zaha! 👋", content: "But you can call me Zozo! I'm excited to be YOUR voice in our school parliament!" },
+    { icon: Brain, title: "I'm Smart & Brilliant 🧠", content: "I love learning and have lots of clever ideas to make our school even better!" },
+    { icon: Sprout, title: "Growing Up with You 🌱", content: "Just like me, our ideas can grow and make a big impact!" },
+    { icon: Star, title: "Zozo's Big Ideas ⭐", content: "More science experiments, fun reading corners, and awesome art projects!" },
+    { icon: Heart, title: "I'll Listen to You ❤️", content: "Your ideas are important! Together, we can make our school amazing!" }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const Slide = ({ icon: Icon, title, content }) => (
+    <div className="text-center p-4 bg-purple-100 rounded-lg shadow-lg">
+      <Icon className="mx-auto text-purple-500" size={48} />
+      <h2 className="text-2xl font-bold mt-4 mb-2">{title}</h2>
+      <p className="text-lg">{content}</p>
+    </div>
+  );
+
+  return (
+    <div className="max-w-md mx-auto mt-8">
+      <Slide {...slides[currentSlide]} />
+      <div className="flex justify-between mt-4">
+        <button onClick={prevSlide} className="bg-purple-500 text-white px-4 py-2 rounded">Previous</button>
+        <button onClick={nextSlide} className="bg-purple-500 text-white px-4 py-2 rounded">Next</button>
+      </div>
+    </div>
+  );
+};
+
+export default Presentation;
