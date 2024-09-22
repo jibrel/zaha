@@ -1,43 +1,93 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-import React, { useState } from 'react';
-import { Smile, Brain, Sprout, Star, Heart } from 'lucide-react';
+		<title>Zaha's Silly School Parliament Campaign!</title>
 
-const Presentation = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const slides = [
-    { icon: Smile, title: "Hi, I'm Zaha! 👋", content: "But you can call me Zozo! I'm excited to be YOUR voice in our school parliament!" },
-    { icon: Brain, title: "I'm Smart & Brilliant 🧠", content: "I love learning and have lots of clever ideas to make our school even better!" },
-    { icon: Sprout, title: "Growing Up with You 🌱", content: "Just like me, our ideas can grow and make a big impact!!" },
-    { icon: Star, title: "Zozo's Big Ideas ⭐", content: "More science experiments, fun reading corners, and awesome art projects!" },
-    { icon: Heart, title: "I'll Listen to You ❤️", content: "Your ideas are important! Together, we can make our school amazing!" }
-  ];
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css">
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+		<style>
+			.reveal h1, .reveal h2 {
+				color: #FF69B4;
+				text-shadow: 2px 2px #FFD700;
+			}
+			.reveal p {
+				color: #333;
+				font-size: 1.2em;
+			}
+			.reveal .slides section {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				text-align: center;
+			}
+			.emoji {
+				font-size: 4em;
+				margin: 20px 0;
+			}
+			.joke {
+				font-style: italic;
+				color: #4CAF50;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Hey, I'm Zaha! 🎉</h1>
+					<p>But you can call me Zozo the Fantastic!</p>
+					<div class="emoji">🦸‍♀️</div>
+					<p class="joke">Why did I join the school parliament? Because I heard it was a <em>class</em> act!</p>
+				</section>
+				<section>
+					<h2>I'm Smart & Brilliant 🧠</h2>
+					<p>My brain is so big, I need a larger hat every week!</p>
+					<div class="emoji">🎩</div>
+					<p class="joke">What do you call a smart Zozo? A brain-nana! 🍌</p>
+				</section>
+				<section>
+					<h2>Growing Up with You 🌱</h2>
+					<p>I'm growing so fast, my shoes are getting jealous!</p>
+					<div class="emoji">👟</div>
+					<p class="joke">Why don't shoes ever get taller? They've got too many <em>laces</em> to tie them down!</p>
+				</section>
+				<section>
+					<h2>Zozo's Wacky Ideas ⭐</h2>
+					<p>Upside-down day, bring-your-pet-rock to school, and homework-eating plant research!</p>
+					<div class="emoji">🙃🪨🌿</div>
+					<p class="joke">Why did the homework cross the road? To get to the other slide!</p>
+				</section>
+				<section>
+					<h2>I'm All Ears! 👂</h2>
+					<p>I'll listen so hard, I might hear tomorrow's lunch menu!</p>
+					<div class="emoji">🍕👂🍎</div>
+					<p class="joke">What do you call a Zozo with super hearing? Ear-resistible!</p>
+				</section>
+				<section>
+					<h1>Vote for Zozo! 🗳️</h1>
+					<p>Let's turn our school into a fun factory!</p>
+					<div class="emoji">🎈🎊</div>
+					<p class="joke">Why did Zozo win the election? She had the <em>write</em> stuff!</p>
+				</section>
+			</div>
+		</div>
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const Slide = ({ icon: Icon, title, content }) => (
-    <div className="text-center p-4 bg-purple-100 rounded-lg shadow-lg">
-      <Icon className="mx-auto text-purple-500" size={48} />
-      <h2 className="text-2xl font-bold mt-4 mb-2">{title}</h2>
-      <p className="text-lg">{content}</p>
-    </div>
-  );
-
-  return (
-    <div className="max-w-md mx-auto mt-8">
-      <Slide {...slides[currentSlide]} />
-      <div className="flex justify-between mt-4">
-        <button onClick={prevSlide} className="bg-purple-500 text-white px-4 py-2 rounded">Previous</button>
-        <button onClick={nextSlide} className="bg-purple-500 text-white px-4 py-2 rounded">Next</button>
-      </div>
-    </div>
-  );
-};
-
-export default Presentation;
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				controls: true,
+				progress: true,
+				center: true,
+				transition: 'zoom'
+			});
+		</script>
+	</body>
+</html>
